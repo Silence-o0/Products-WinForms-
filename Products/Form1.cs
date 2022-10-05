@@ -5,13 +5,13 @@ namespace Products
 {
     public partial class Form1 : Form
     {
-        abstract class Product
+        class Product
         {
-            internal string name {get; set;}
-            internal string countryOfOrigin;
-            internal double productPrice;
-            internal string description;
-            internal string packingDate;
+            string name;
+            string countryOfOrigin;
+            double productPrice;
+            string description;
+            string packingDate;
             public Product (string name, string country, double price, string description, string packingDate)
             {
                 this.name = name;
@@ -25,9 +25,9 @@ namespace Products
 
         class Food : Product
         {
-            internal int foodQuantity;
-            internal string expirationDate;
-            internal string unitOfMeasure;
+            int foodQuantity;
+            string expirationDate;
+            string unitOfMeasure;
             public Food (int quantity, string expirationDate, string unitOfMeasure, 
                 string name, string country, double price, string description, string packingDate) : 
                 base(name, country, price, description, packingDate)
@@ -40,9 +40,9 @@ namespace Products
 
         class Book : Product
         {
-            internal int pageQuantity;
-            internal string publishingHouse;
-            internal string authors;
+            int pageQuantity;
+            string publishingHouse;
+            string authors;
             public Book(int pageQuantity, string publishingHouse, string authors,
             string name, string country, double price, string description, string packingDate) :
                 base(name, country, price, description, packingDate)
@@ -64,27 +64,27 @@ namespace Products
         {
             dataGridView1.ReadOnly= true;
 
-            table.Columns.Add("Назва", typeof(string));
-            table.Columns.Add("Країна походження", typeof(string));
-            table.Columns.Add("Вартість", typeof(double));
-            table.Columns.Add("Опис", typeof(string));
-            table.Columns.Add("Дата виготовлення", typeof(string));
-            table.Columns.Add("Кількість", typeof(int));
-            table.Columns.Add("Термін придатності", typeof(string));
-            table.Columns.Add("Одиниця виміру", typeof(string));
-            table.Columns.Add("Кількість сторінок", typeof(int));
-            table.Columns.Add("Видавництво", typeof(string));
-            table.Columns.Add("Автори", typeof(string));
+            table.Columns.Add("ГЌГ Г§ГўГ ", typeof(string));
+            table.Columns.Add("ГЉГ°Г ВїГ­Г  ГЇГ®ГµГ®Г¤Г¦ГҐГ­Г­Гї", typeof(string));
+            table.Columns.Add("Г‚Г Г°ГІВіГ±ГІГј", typeof(double));
+            table.Columns.Add("ГЋГЇГЁГ±", typeof(string));
+            table.Columns.Add("Г„Г ГІГ  ГўГЁГЈГ®ГІГ®ГўГ«ГҐГ­Г­Гї", typeof(string));
+            table.Columns.Add("ГЉВіГ«ГјГЄВіГ±ГІГј", typeof(int));
+            table.Columns.Add("Г’ГҐГ°Г¬ВіГ­ ГЇГ°ГЁГ¤Г ГІГ­Г®Г±ГІВі", typeof(string));
+            table.Columns.Add("ГЋГ¤ГЁГ­ГЁГ¶Гї ГўГЁГ¬ВіГ°Гі", typeof(string));
+            table.Columns.Add("ГЉВіГ«ГјГЄВіГ±ГІГј Г±ГІГ®Г°ВіГ­Г®ГЄ", typeof(int));
+            table.Columns.Add("Г‚ГЁГ¤Г ГўГ­ГЁГ¶ГІГўГ®", typeof(string));
+            table.Columns.Add("ГЂГўГІГ®Г°ГЁ", typeof(string));
 
-            table.Rows.Add("Консерва 'Ocean'", "Данія", 140.80, "Консерва рибна 'Ocean'", "6.01.2022", 5, "10.05.2023", "200 грам", null,
+            table.Rows.Add("ГЉГ®Г­Г±ГҐГ°ГўГ  'Ocean'", "Г„Г Г­ВіГї", 140.80, "ГЉГ®Г­Г±ГҐГ°ГўГ  Г°ГЁГЎГ­Г  'Ocean'", "6.01.2022", 5, "10.05.2023", "200 ГЈГ°Г Г¬", null,
                 null, null);
-            table.Rows.Add("Програмування С#", "Україна", 99.40, "Книга програмування мовою C# з нуля", "16.09.2021", 
-                null, null, null, 45, "ABCBook", "Петро Петренко");
-            table.Rows.Add("Томатна паста 'Помідорка'", "Україна", 69.20, "Томатна паста 'Помідорка'", "29.08.2022", 20, 
-                "12.07.2023", "350 грам", null, null, null);
-            table.Rows.Add("Молоко 'Рябушка'", "Україна", 48.10, "Молоко пастеризоване 'Рябушка'", "29.09.2022", 11, "8.02.2023", 
-                "1 літр", null, null, null);
-            table.Rows.Add("Psychology", "USA", 255, "Книга 'Psyhology' англійською мовою", "2.11.2020", null, null, null, 
+            table.Rows.Add("ГЏГ°Г®ГЈГ°Г Г¬ГіГўГ Г­Г­Гї Г‘#", "Г“ГЄГ°Г ВїГ­Г ", 99.40, "ГЉГ­ГЁГЈГ  ГЇГ°Г®ГЈГ°Г Г¬ГіГўГ Г­Г­Гї Г¬Г®ГўГ®Гѕ C# Г§ Г­ГіГ«Гї", "16.09.2021", 
+                null, null, null, 45, "ABCBook", "ГЏГҐГІГ°Г® ГЏГҐГІГ°ГҐГ­ГЄГ®");
+            table.Rows.Add("Г’Г®Г¬Г ГІГ­Г  ГЇГ Г±ГІГ  'ГЏГ®Г¬ВіГ¤Г®Г°ГЄГ '", "Г“ГЄГ°Г ВїГ­Г ", 69.20, "Г’Г®Г¬Г ГІГ­Г  ГЇГ Г±ГІГ  'ГЏГ®Г¬ВіГ¤Г®Г°ГЄГ '", "29.08.2022", 20, 
+                "12.07.2023", "350 ГЈГ°Г Г¬", null, null, null);
+            table.Rows.Add("ГЊГ®Г«Г®ГЄГ® 'ГђГїГЎГіГёГЄГ '", "Г“ГЄГ°Г ВїГ­Г ", 48.10, "ГЊГ®Г«Г®ГЄГ® ГЇГ Г±ГІГҐГ°ГЁГ§Г®ГўГ Г­ГҐ 'ГђГїГЎГіГёГЄГ '", "29.09.2022", 11, "8.02.2023", 
+                "1 Г«ВіГІГ°", null, null, null);
+            table.Rows.Add("Psychology", "USA", 255, "ГЉГ­ГЁГЈГ  'Psyhology' Г Г­ГЈГ«ВіГ©Г±ГјГЄГ®Гѕ Г¬Г®ГўГ®Гѕ", "2.11.2020", null, null, null, 
                 158, "FirstBook", "Jane Smith");
 
             dataGridView1.DataSource = table;
@@ -126,7 +126,7 @@ namespace Products
             textBoxPackingDate.Visible = false;
 
             labelAddCountryOfOrigin.Visible = false;
-            textBoxСountryOfOrigin.Visible = false;
+            textBoxГ‘ountryOfOrigin.Visible = false;
 
             labelAddProductPrice.Visible = false;
             textBoxProductPrice.Visible = false;
@@ -147,7 +147,7 @@ namespace Products
             textBoxName.Text = String.Empty;
             textBoxDescription.Text = String.Empty;
             textBoxPackingDate.Text = String.Empty;
-            textBoxСountryOfOrigin.Text = String.Empty;
+            textBoxГ‘ountryOfOrigin.Text = String.Empty;
             textBoxProductPrice.Text = String.Empty;
             textBox_Food_Page_Quantity.Text = String.Empty;
             textBox_ExpDate_PublishingHouse.Text = String.Empty;
@@ -168,7 +168,7 @@ namespace Products
             textBoxPackingDate.Visible = true;
 
             labelAddCountryOfOrigin.Visible = true;
-            textBoxСountryOfOrigin.Visible = true;
+            textBoxГ‘ountryOfOrigin.Visible = true;
 
             labelAddProductPrice.Visible = true;
             textBoxProductPrice.Visible = true;
@@ -187,25 +187,25 @@ namespace Products
 
         private void toolStripButtonAddFood_Click(object sender, EventArgs e)
         {
-            labelAdd_Food_Page_Quantity.Text = "Кіл-сть:";
+            labelAdd_Food_Page_Quantity.Text = "ГЉВіГ«-Г±ГІГј:";
 
-            labelAdd_ExpDate_PublishingHouse.Text = "Термін придатності:";
+            labelAdd_ExpDate_PublishingHouse.Text = "Г’ГҐГ°Г¬ВіГ­ ГЇГ°ГЁГ¤Г ГІГ­Г®Г±ГІВі:";
 
-            labelAdd_Measure_Authors.Text = "Вага:";
+            labelAdd_Measure_Authors.Text = "Г‚Г ГЈГ :";
 
-            buttonFinishAdding.Text = "Додати продукт";
+            buttonFinishAdding.Text = "Г„Г®Г¤Г ГІГЁ ГЇГ°Г®Г¤ГіГЄГІ";
             addProducts_ElementVisibilityON();
         }
 
         private void toolStripButtonAddBook_Click(object sender, EventArgs e)
         {
-            labelAdd_Food_Page_Quantity.Text = "К-сть сторінок:";
+            labelAdd_Food_Page_Quantity.Text = "ГЉ-Г±ГІГј Г±ГІГ®Г°ВіГ­Г®ГЄ:";
 
-            labelAdd_ExpDate_PublishingHouse.Text = "Видавництво:";
+            labelAdd_ExpDate_PublishingHouse.Text = "Г‚ГЁГ¤Г ГўГ­ГЁГ¶ГІГўГ®:";
 
-            labelAdd_Measure_Authors.Text = "Автори:";
+            labelAdd_Measure_Authors.Text = "ГЂГўГІГ®Г°ГЁ:";
 
-            buttonFinishAdding.Text = "Додати книгу";
+            buttonFinishAdding.Text = "Г„Г®Г¤Г ГІГЁ ГЄГ­ГЁГЈГі";
             addProducts_ElementVisibilityON();
         }
 
@@ -221,7 +221,7 @@ namespace Products
                 DataRowView _dataRowView = dataGridView1.SelectedRows[0].DataBoundItem as DataRowView;
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити цей товар?", "Видалення товару", buttons);
+                DialogResult result = MessageBox.Show("Г‚ГЁ ГўГЇГҐГўГ­ГҐГ­Ві, Г№Г® ГµГ®Г·ГҐГІГҐ ГўГЁГ¤Г Г«ГЁГІГЁ Г¶ГҐГ© ГІГ®ГўГ Г°?", "Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї ГІГ®ГўГ Г°Гі", buttons);
                 if (result == DialogResult.Yes)
                 {
                     _dataRowView.Delete();
@@ -254,15 +254,15 @@ namespace Products
             bool succesfulAction = true;
             try
             {
-                if (buttonFinishAdding.Text == "Додати продукт")
+                if (buttonFinishAdding.Text == "Г„Г®Г¤Г ГІГЁ ГЇГ°Г®Г¤ГіГЄГІ")
                 {
-                    table.Rows.Add(textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
+                    table.Rows.Add(textBoxName.Text, textBoxГ‘ountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
                         textBoxDescription.Text, textBoxPackingDate.Text, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
                         textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text, null, null, null);
                 }
                 else
                 {
-                    table.Rows.Add(textBoxName.Text, textBoxСountryOfOrigin.Text,
+                    table.Rows.Add(textBoxName.Text, textBoxГ‘ountryOfOrigin.Text,
                     Convert.ToInt32(textBoxProductPrice.Text), textBoxDescription.Text,
                     textBoxPackingDate.Text, null, null, null, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
                     textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text);
@@ -271,7 +271,7 @@ namespace Products
             catch (Exception ex)
             {
                 succesfulAction = false;
-                MessageBox.Show("ERROR! Перевірте правильність введених даних.");
+                MessageBox.Show("ERROR! ГЏГҐГ°ГҐГўВіГ°ГІГҐ ГЇГ°Г ГўГЁГ«ГјГ­ВіГ±ГІГј ГўГўГҐГ¤ГҐГ­ГЁГµ Г¤Г Г­ГЁГµ.");
             }
             if (succesfulAction == true) 
             { 

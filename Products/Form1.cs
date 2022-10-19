@@ -8,19 +8,12 @@ namespace Products
     {
         class Product
         {
-<<<<<<< HEAD
             internal string name;
             internal string countryOfOrigin;
             internal double productPrice;
             internal string description;
             internal string packingDate;
-=======
-            string name;
-            string countryOfOrigin;
-            double productPrice;
-            string description;
-            string packingDate;
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
+
             public Product (string name, string country, double price, string description, string packingDate)
             {
                 this.name = name;
@@ -74,19 +67,18 @@ namespace Products
         {
             dataGridView1.ReadOnly= true;
 
-            table.Columns.Add("ГЌГ Г§ГўГ ", typeof(string));
-            table.Columns.Add("ГЉГ°Г ВїГ­Г  ГЇГ®ГµГ®Г¤Г¦ГҐГ­Г­Гї", typeof(string));
-            table.Columns.Add("Г‚Г Г°ГІВіГ±ГІГј", typeof(double));
-            table.Columns.Add("ГЋГЇГЁГ±", typeof(string));
-            table.Columns.Add("Г„Г ГІГ  ГўГЁГЈГ®ГІГ®ГўГ«ГҐГ­Г­Гї", typeof(string));
-            table.Columns.Add("ГЉВіГ«ГјГЄВіГ±ГІГј", typeof(int));
-            table.Columns.Add("Г’ГҐГ°Г¬ВіГ­ ГЇГ°ГЁГ¤Г ГІГ­Г®Г±ГІВі", typeof(string));
-            table.Columns.Add("ГЋГ¤ГЁГ­ГЁГ¶Гї ГўГЁГ¬ВіГ°Гі", typeof(string));
-            table.Columns.Add("ГЉВіГ«ГјГЄВіГ±ГІГј Г±ГІГ®Г°ВіГ­Г®ГЄ", typeof(int));
-            table.Columns.Add("Г‚ГЁГ¤Г ГўГ­ГЁГ¶ГІГўГ®", typeof(string));
-            table.Columns.Add("ГЂГўГІГ®Г°ГЁ", typeof(string));
+            table.Columns.Add("Назва товару", typeof(string));
+            table.Columns.Add("Країна походження", typeof(string));
+            table.Columns.Add("Вартість", typeof(double));
+            table.Columns.Add("Опис", typeof(string));
+            table.Columns.Add("Дата виробництва", typeof(string));
+            table.Columns.Add("Кількість", typeof(int));
+            table.Columns.Add("Вага", typeof(string));
+            table.Columns.Add("Термін споживання", typeof(string));
+            table.Columns.Add("Кількість сторінок", typeof(int));
+            table.Columns.Add("Видавництво", typeof(string));
+            table.Columns.Add("Автори", typeof(string));
 
-<<<<<<< HEAD
             productList.Add(new Food(5, "10.05.2023", "200 грам", "Консерва 'Ocean'", "Данія", 140.80, "Консерва рибна 'Ocean'", "6.01.2022"));
             productList.Add(new Book(45, "ABCBook", "Петро Петренко", "Програмування С#", "Україна", 99.40, "Книга програмування мовою C# з нуля", "16.09.2021"));
             productList.Add(new Food(20, "12.07.2023", "350 грам","Томатна паста 'Помідорка'", "Україна", 69.20, "Томатна паста 'Помідорка'", "29.08.2022"));
@@ -96,18 +88,6 @@ namespace Products
             productList.Add(new Product("Чохол для телефону", "Китай", 240.80, "Чохол для телефону Samsung жовтого кольору", "23.04.2021"));
 
             displayListAtDataGrid();
-=======
-            table.Rows.Add("ГЉГ®Г­Г±ГҐГ°ГўГ  'Ocean'", "Г„Г Г­ВіГї", 140.80, "ГЉГ®Г­Г±ГҐГ°ГўГ  Г°ГЁГЎГ­Г  'Ocean'", "6.01.2022", 5, "10.05.2023", "200 ГЈГ°Г Г¬", null,
-                null, null);
-            table.Rows.Add("ГЏГ°Г®ГЈГ°Г Г¬ГіГўГ Г­Г­Гї Г‘#", "Г“ГЄГ°Г ВїГ­Г ", 99.40, "ГЉГ­ГЁГЈГ  ГЇГ°Г®ГЈГ°Г Г¬ГіГўГ Г­Г­Гї Г¬Г®ГўГ®Гѕ C# Г§ Г­ГіГ«Гї", "16.09.2021", 
-                null, null, null, 45, "ABCBook", "ГЏГҐГІГ°Г® ГЏГҐГІГ°ГҐГ­ГЄГ®");
-            table.Rows.Add("Г’Г®Г¬Г ГІГ­Г  ГЇГ Г±ГІГ  'ГЏГ®Г¬ВіГ¤Г®Г°ГЄГ '", "Г“ГЄГ°Г ВїГ­Г ", 69.20, "Г’Г®Г¬Г ГІГ­Г  ГЇГ Г±ГІГ  'ГЏГ®Г¬ВіГ¤Г®Г°ГЄГ '", "29.08.2022", 20, 
-                "12.07.2023", "350 ГЈГ°Г Г¬", null, null, null);
-            table.Rows.Add("ГЊГ®Г«Г®ГЄГ® 'ГђГїГЎГіГёГЄГ '", "Г“ГЄГ°Г ВїГ­Г ", 48.10, "ГЊГ®Г«Г®ГЄГ® ГЇГ Г±ГІГҐГ°ГЁГ§Г®ГўГ Г­ГҐ 'ГђГїГЎГіГёГЄГ '", "29.09.2022", 11, "8.02.2023", 
-                "1 Г«ВіГІГ°", null, null, null);
-            table.Rows.Add("Psychology", "USA", 255, "ГЉГ­ГЁГЈГ  'Psyhology' Г Г­ГЈГ«ВіГ©Г±ГјГЄГ®Гѕ Г¬Г®ГўГ®Гѕ", "2.11.2020", null, null, null, 
-                158, "FirstBook", "Jane Smith");
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
 
             dataGridView1.DataSource = table;
         }
@@ -160,7 +140,7 @@ namespace Products
             textBoxPackingDate.Visible = false;
 
             labelAddCountryOfOrigin.Visible = false;
-            textBoxГ‘ountryOfOrigin.Visible = false;
+            textBoxСountryOfOrigin.Visible = false;
 
             labelAddProductPrice.Visible = false;
             textBoxProductPrice.Visible = false;
@@ -172,7 +152,7 @@ namespace Products
             textBoxName.Text = String.Empty;
             textBoxDescription.Text = String.Empty;
             textBoxPackingDate.Text = String.Empty;
-            textBoxГ‘ountryOfOrigin.Text = String.Empty;
+            textBoxСountryOfOrigin.Text = String.Empty;
             textBoxProductPrice.Text = String.Empty;
             textBox_Food_Page_Quantity.Text = String.Empty;
             textBox_ExpDate_PublishingHouse.Text = String.Empty;
@@ -193,7 +173,7 @@ namespace Products
             textBoxPackingDate.Visible = true;
 
             labelAddCountryOfOrigin.Visible = true;
-            textBoxГ‘ountryOfOrigin.Visible = true;
+            textBoxСountryOfOrigin.Visible = true;
 
             labelAddProductPrice.Visible = true;
             textBoxProductPrice.Visible = true;
@@ -223,36 +203,26 @@ namespace Products
 
         private void toolStripButtonAddFood_Click(object sender, EventArgs e)
         {
-            labelAdd_Food_Page_Quantity.Text = "ГЉВіГ«-Г±ГІГј:";
+            labelAdd_Food_Page_Quantity.Text = "Кіл-сть:";
 
-            labelAdd_ExpDate_PublishingHouse.Text = "Г’ГҐГ°Г¬ВіГ­ ГЇГ°ГЁГ¤Г ГІГ­Г®Г±ГІВі:";
+            labelAdd_ExpDate_PublishingHouse.Text = "Термін споживання:";
 
-            labelAdd_Measure_Authors.Text = "Г‚Г ГЈГ :";
+            labelAdd_Measure_Authors.Text = "Вага:";
 
-<<<<<<< HEAD
             buttonFinishAdding.Text = "Додати продукт";
             addProducts_AllElementVisibilityON();
-=======
-            buttonFinishAdding.Text = "Г„Г®Г¤Г ГІГЁ ГЇГ°Г®Г¤ГіГЄГІ";
-            addProducts_ElementVisibilityON();
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
         }
 
         private void toolStripButtonAddBook_Click(object sender, EventArgs e)
         {
-            labelAdd_Food_Page_Quantity.Text = "ГЉ-Г±ГІГј Г±ГІГ®Г°ВіГ­Г®ГЄ:";
+            labelAdd_Food_Page_Quantity.Text = "Кіл-сть сторінок:";
 
-            labelAdd_ExpDate_PublishingHouse.Text = "Г‚ГЁГ¤Г ГўГ­ГЁГ¶ГІГўГ®:";
+            labelAdd_ExpDate_PublishingHouse.Text = "Видавництво:";
 
-            labelAdd_Measure_Authors.Text = "ГЂГўГІГ®Г°ГЁ:";
+            labelAdd_Measure_Authors.Text = "Автори:";
 
-<<<<<<< HEAD
             buttonFinishAdding.Text = "Додати книгу";
             addProducts_AllElementVisibilityON();
-=======
-            buttonFinishAdding.Text = "Г„Г®Г¤Г ГІГЁ ГЄГ­ГЁГЈГі";
-            addProducts_ElementVisibilityON();
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
         }
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
@@ -264,16 +234,22 @@ namespace Products
         {
             if (this.dataGridView1.SelectedRows.Count > 0 && this.dataGridView1.SelectedRows.Count < this.dataGridView1.Rows.Count)
             {
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Г‚ГЁ ГўГЇГҐГўГ­ГҐГ­Ві, Г№Г® ГµГ®Г·ГҐГІГҐ ГўГЁГ¤Г Г«ГЁГІГЁ Г¶ГҐГ© ГІГ®ГўГ Г°?", "Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї ГІГ®ГўГ Г°Гі", buttons);
-                if (result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити?", "Видалення", MessageBoxButtons.YesNo);
+                switch (result)
                 {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                    {
-                        dataGridView1.Rows.RemoveAt(row.Index);
-                    }
-                }
+                    case DialogResult.Yes:
+                        {
 
+                                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                                {
+                                    dataGridView1.Rows.RemoveAt(row.Index);
+                                }
+                            
+                        }
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
             }
             else if (this.dataGridView1.SelectedRows.Count == 0)     // Якщо рядок не обраний
             {
@@ -333,7 +309,8 @@ namespace Products
                 column11 = null;
             }
 
-            table.Rows.Add(productList[i].name, productList[i].countryOfOrigin, productList[i].productPrice, productList[i].description, productList[i].packingDate,
+            table.Rows.Add(productList[i].name, productList[i].countryOfOrigin, productList[i].productPrice, 
+                productList[i].description, productList[i].packingDate,
         column6, column7, column8, column9, column10, column11);
         }
         private void displayListAtDataGrid()
@@ -373,28 +350,19 @@ namespace Products
             checkTextboxesFullness();
             try
             {
-<<<<<<< HEAD
-                if (Convert.ToInt32(textBox_Food_Page_Quantity.Text) < 0 || Convert.ToInt32(textBoxProductPrice.Text) <= 0) 
+                if (Convert.ToInt32(textBox_Food_Page_Quantity.Text) < 0 || Convert.ToInt32(textBoxProductPrice.Text) <= 0)
                 {
                     MessageBox.Show("ERROR. Значення не може бути від'ємним.");
                     succesfulAction = false;
-=======
-                if (buttonFinishAdding.Text == "Г„Г®Г¤Г ГІГЁ ГЇГ°Г®Г¤ГіГЄГІ")
-                {
-                    table.Rows.Add(textBoxName.Text, textBoxГ‘ountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
-                        textBoxDescription.Text, textBoxPackingDate.Text, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
-                        textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text, null, null, null);
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
                 }
                 else if (buttonFinishAdding.Text == "Додати товар")
                 {
-<<<<<<< HEAD
                     productList.Add(new Product(textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
                         textBoxDescription.Text, textBoxPackingDate.Text));
                 }
                 else if (buttonFinishAdding.Text == "Додати продукт")
                 {
-                    productList.Add(new Food(Convert.ToInt32(null), textBox_ExpDate_PublishingHouse.Text,
+                    productList.Add(new Food(Convert.ToInt32(textBox_Food_Page_Quantity.Text), textBox_ExpDate_PublishingHouse.Text,
                         textBox_Measure_Authors.Text, textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
                         textBoxDescription.Text, textBoxPackingDate.Text));
                 }
@@ -403,12 +371,6 @@ namespace Products
                     productList.Add(new Book(Convert.ToInt32(textBox_Food_Page_Quantity.Text), textBox_ExpDate_PublishingHouse.Text,
                         textBox_Measure_Authors.Text, textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
                         textBoxDescription.Text, textBoxPackingDate.Text));
-=======
-                    table.Rows.Add(textBoxName.Text, textBoxГ‘ountryOfOrigin.Text,
-                    Convert.ToInt32(textBoxProductPrice.Text), textBoxDescription.Text,
-                    textBoxPackingDate.Text, null, null, null, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
-                    textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text);
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
                 }
             }
             catch(Exception)
@@ -431,10 +393,6 @@ namespace Products
                         $"має бути числове додатнє значення.") ;
                 }
                 succesfulAction = false;
-<<<<<<< HEAD
-=======
-                MessageBox.Show("ERROR! ГЏГҐГ°ГҐГўВіГ°ГІГҐ ГЇГ°Г ГўГЁГ«ГјГ­ВіГ±ГІГј ГўГўГҐГ¤ГҐГ­ГЁГµ Г¤Г Г­ГЁГµ.");
->>>>>>> a706cd5927d963bdc0ce873b399fa5d789588263
             }
             
             if (succesfulAction == true) 
@@ -451,9 +409,10 @@ namespace Products
             ClearAddBoxes();
         }
 
+        private void textBoxСountryOfOrigin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-
-        
-
 
 }

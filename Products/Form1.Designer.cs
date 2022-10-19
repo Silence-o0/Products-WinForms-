@@ -235,6 +235,7 @@
             this.textBoxСountryOfOrigin.Size = new System.Drawing.Size(156, 31);
             this.textBoxСountryOfOrigin.TabIndex = 5;
             this.textBoxСountryOfOrigin.Visible = false;
+            this.textBoxСountryOfOrigin.TextChanged += new System.EventHandler(this.textBoxСountryOfOrigin_TextChanged);
             // 
             // textBox_Food_Page_Quantity
             // 

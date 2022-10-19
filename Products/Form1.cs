@@ -1,13 +1,14 @@
 using System.Data;
-
+using System.Collections;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace Products
 {
     public partial class Form1 : Form
     {
-        abstract class Product
+        class Product
         {
-            internal string name {get; set;}
+            internal string name;
             internal string countryOfOrigin;
             internal double productPrice;
             internal string description;
@@ -54,6 +55,7 @@ namespace Products
         }
 
         DataTable table = new DataTable();
+        List<dynamic> productList = new List<dynamic>();  
 
         public Form1()
         {
@@ -76,16 +78,15 @@ namespace Products
             table.Columns.Add("Видавництво", typeof(string));
             table.Columns.Add("Автори", typeof(string));
 
-            table.Rows.Add("Консерва 'Ocean'", "Данія", 140.80, "Консерва рибна 'Ocean'", "6.01.2022", 5, "10.05.2023", "200 грам", null,
-                null, null);
-            table.Rows.Add("Програмування С#", "Україна", 99.40, "Книга програмування мовою C# з нуля", "16.09.2021", 
-                null, null, null, 45, "ABCBook", "Петро Петренко");
-            table.Rows.Add("Томатна паста 'Помідорка'", "Україна", 69.20, "Томатна паста 'Помідорка'", "29.08.2022", 20, 
-                "12.07.2023", "350 грам", null, null, null);
-            table.Rows.Add("Молоко 'Рябушка'", "Україна", 48.10, "Молоко пастеризоване 'Рябушка'", "29.09.2022", 11, "8.02.2023", 
-                "1 літр", null, null, null);
-            table.Rows.Add("Psychology", "USA", 255, "Книга 'Psyhology' англійською мовою", "2.11.2020", null, null, null, 
-                158, "FirstBook", "Jane Smith");
+            productList.Add(new Food(5, "10.05.2023", "200 грам", "Консерва 'Ocean'", "Данія", 140.80, "Консерва рибна 'Ocean'", "6.01.2022"));
+            productList.Add(new Book(45, "ABCBook", "Петро Петренко", "Програмування С#", "Україна", 99.40, "Книга програмування мовою C# з нуля", "16.09.2021"));
+            productList.Add(new Food(20, "12.07.2023", "350 грам","Томатна паста 'Помідорка'", "Україна", 69.20, "Томатна паста 'Помідорка'", "29.08.2022"));
+            productList.Add(new Food(11, "8.02.2023", "1 літр", "Молоко 'Рябушка'", "Україна", 48.10, "Молоко пастеризоване 'Рябушка'", "29.09.2022"));
+            productList.Add(new Book(158, "FirstBook", "Jane Smith", "Psychology", "USA", 255, "Книга 'Psyhology' англійською мовою", "2.11.2020"));
+            productList.Add(new Product("Губки кухонні", "Україна", 26.30, "Кухонні губки 5 шт в упаковці", "10.08.2022"));
+            productList.Add(new Product("Чохол для телефону", "Китай", 240.80, "Чохол для телефону Samsung жовтого кольору", "23.04.2021"));
+
+            displayListAtDataGrid();
 
             dataGridView1.DataSource = table;
         }
@@ -110,9 +111,21 @@ namespace Products
         {
             
         }
-
-        private void addProducts_ElementVisibilityOFF()
+        private void addProducts_AdditionalElementVisibilityOFF()       //Приховує бокси додаткової інформації
         {
+            labelAdd_Food_Page_Quantity.Visible = false;
+            textBox_Food_Page_Quantity.Visible = false;
+
+            labelAdd_ExpDate_PublishingHouse.Visible = false;
+            textBox_ExpDate_PublishingHouse.Visible = false;
+
+            labelAdd_Measure_Authors.Visible = false;
+            textBox_Measure_Authors.Visible = false;
+        }
+        private void addProducts_AllElementVisibilityOFF()
+        {
+            addProducts_AdditionalElementVisibilityOFF();
+
             LabelOfAddHiding.Visible = false;
             labelAddMain.Visible = false;
 
@@ -131,15 +144,6 @@ namespace Products
             labelAddProductPrice.Visible = false;
             textBoxProductPrice.Visible = false;
 
-            labelAdd_Food_Page_Quantity.Visible = false;
-            textBox_Food_Page_Quantity.Visible = false;
-
-            labelAdd_ExpDate_PublishingHouse.Visible = false;
-            textBox_ExpDate_PublishingHouse.Visible = false;
-
-            labelAdd_Measure_Authors.Visible = false;
-            textBox_Measure_Authors.Visible = false;
-
             buttonFinishAdding.Visible = false;
         }
         private void ClearAddBoxes()
@@ -153,7 +157,7 @@ namespace Products
             textBox_ExpDate_PublishingHouse.Text = String.Empty;
             textBox_Measure_Authors.Text = String.Empty;
         }
-        private void addProducts_ElementVisibilityON()
+        private void addProducts_MainElementVisibilityON()    //Робить спільні бокси видимими
         {
             LabelOfAddHiding.Visible = true;
             labelAddMain.Visible = true;
@@ -173,6 +177,12 @@ namespace Products
             labelAddProductPrice.Visible = true;
             textBoxProductPrice.Visible = true;
 
+            buttonFinishAdding.Visible = true;
+        }
+        private void addProducts_AllElementVisibilityON()
+        {
+            addProducts_MainElementVisibilityON();
+
             labelAdd_Food_Page_Quantity.Visible = true;
             textBox_Food_Page_Quantity.Visible = true;
 
@@ -181,8 +191,13 @@ namespace Products
 
             labelAdd_Measure_Authors.Visible = true;
             textBox_Measure_Authors.Visible = true;
+        }
+        private void toolStripButtonAddAnotherProduct_Click(object sender, EventArgs e)
+        {
+            buttonFinishAdding.Text = "Додати товар";
 
-            buttonFinishAdding.Visible = true;
+            addProducts_AdditionalElementVisibilityOFF();    //Бокси додаткової інформації приховує
+            addProducts_MainElementVisibilityON();       // Спільні бокси робить видимими
         }
 
         private void toolStripButtonAddFood_Click(object sender, EventArgs e)
@@ -194,7 +209,7 @@ namespace Products
             labelAdd_Measure_Authors.Text = "Вага:";
 
             buttonFinishAdding.Text = "Додати продукт";
-            addProducts_ElementVisibilityON();
+            addProducts_AllElementVisibilityON();
         }
 
         private void toolStripButtonAddBook_Click(object sender, EventArgs e)
@@ -206,7 +221,7 @@ namespace Products
             labelAdd_Measure_Authors.Text = "Автори:";
 
             buttonFinishAdding.Text = "Додати книгу";
-            addProducts_ElementVisibilityON();
+            addProducts_AllElementVisibilityON();
         }
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
@@ -216,16 +231,22 @@ namespace Products
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView1.SelectedRows.Count > 0 && this.dataGridView1.SelectedRows.Count< this.dataGridView1.Rows.Count)
+            if (this.dataGridView1.SelectedRows.Count > 0 && this.dataGridView1.SelectedRows.Count < this.dataGridView1.Rows.Count)
             {
-                DataRowView _dataRowView = dataGridView1.SelectedRows[0].DataBoundItem as DataRowView;
-
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити цей товар?", "Видалення товару", buttons);
                 if (result == DialogResult.Yes)
                 {
-                    _dataRowView.Delete();
-                }          
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        dataGridView1.Rows.RemoveAt(row.Index);
+                    }
+                }
+
+            }
+            else if (this.dataGridView1.SelectedRows.Count == 0)     // Якщо рядок не обраний
+            {
+                MessageBox.Show("Оберіть рядок, який хочете видалити.");
             }
         }
 
@@ -248,43 +269,138 @@ namespace Products
         {
 
         }
+        void AddingElementToList(int i) {
+            int? column6, column9;
+            string column7, column8, column10, column11;
+            try
+            {
+                column6 = productList[i].foodQuantity;
+                column7 = productList[i].expirationDate;
+                column8 = productList[i].unitOfMeasure;
+            }
+            catch (Exception)
+            {
+                column6 = null;
+                column7 = null;
+                column8 = null;
+            }
+
+            try
+            {
+                column9 = productList[i].pageQuantity;
+                if (productList[i].pageQuantity == 0)
+                {
+                    column9 = null;
+                }
+                column10 = productList[i].publishingHouse;
+                column11 = productList[i].authors;
+            }
+            catch (Exception)
+            {
+                column9 = null;
+                column10 = null;
+                column11 = null;
+            }
+
+            table.Rows.Add(productList[i].name, productList[i].countryOfOrigin, productList[i].productPrice, productList[i].description, productList[i].packingDate,
+        column6, column7, column8, column9, column10, column11);
+        }
+        private void displayListAtDataGrid()
+        {
+            for (int i = 0; i < productList.Count; i++)
+            {
+                AddingElementToList(i);
+            }
+        }
+
+
+        public void checkEmptiness(dynamic textInBox)
+        {
+            if (String.IsNullOrEmpty(textInBox))
+            {
+                textInBox = null;
+            };
+        }
+
+        public void checkTextboxesFullness()             // Поля name та productPrice обов'язково мають бути заповнені. Всі інші - за бажанням.
+        {
+            checkEmptiness(textBoxСountryOfOrigin.Text);
+            checkEmptiness(textBoxDescription.Text);
+            checkEmptiness(textBoxPackingDate.Text);
+            checkEmptiness(textBox_ExpDate_PublishingHouse.Text);
+            checkEmptiness(textBox_Measure_Authors.Text);
+
+            if (textBox_Food_Page_Quantity.Text==String.Empty)
+            {
+                textBox_Food_Page_Quantity.Text = "0";
+            }
+        }
 
         private void buttonFinishAdding_Click(object sender, EventArgs e)
         {
             bool succesfulAction = true;
+            checkTextboxesFullness();
             try
             {
-                if (buttonFinishAdding.Text == "Додати продукт")
+                if (Convert.ToInt32(textBox_Food_Page_Quantity.Text) < 0 || Convert.ToInt32(textBoxProductPrice.Text) <= 0) 
                 {
-                    table.Rows.Add(textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
-                        textBoxDescription.Text, textBoxPackingDate.Text, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
-                        textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text, null, null, null);
+                    MessageBox.Show("ERROR. Значення не може бути від'ємним.");
+                    succesfulAction = false;
                 }
-                else
+                else if (buttonFinishAdding.Text == "Додати товар")
                 {
-                    table.Rows.Add(textBoxName.Text, textBoxСountryOfOrigin.Text,
-                    Convert.ToInt32(textBoxProductPrice.Text), textBoxDescription.Text,
-                    textBoxPackingDate.Text, null, null, null, Convert.ToInt32(textBox_Food_Page_Quantity.Text),
-                    textBox_ExpDate_PublishingHouse.Text, textBox_Measure_Authors.Text);
+                    productList.Add(new Product(textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
+                        textBoxDescription.Text, textBoxPackingDate.Text));
+                }
+                else if (buttonFinishAdding.Text == "Додати продукт")
+                {
+                    productList.Add(new Food(Convert.ToInt32(null), textBox_ExpDate_PublishingHouse.Text,
+                        textBox_Measure_Authors.Text, textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
+                        textBoxDescription.Text, textBoxPackingDate.Text));
+                }
+                else if (buttonFinishAdding.Text == "Додати книгу")
+                {
+                    productList.Add(new Book(Convert.ToInt32(textBox_Food_Page_Quantity.Text), textBox_ExpDate_PublishingHouse.Text,
+                        textBox_Measure_Authors.Text, textBoxName.Text, textBoxСountryOfOrigin.Text, Convert.ToInt32(textBoxProductPrice.Text),
+                        textBoxDescription.Text, textBoxPackingDate.Text));
                 }
             }
-            catch (Exception ex)
+            catch(Exception)
             {
+                if (String.IsNullOrEmpty(textBoxName.Text) && String.IsNullOrEmpty(textBoxProductPrice.Text))  // Поля name та productPrice обов'язково мають бути заповнені.
+                {
+                    MessageBox.Show("ERROR! Поля 'Назва товару' та 'Вартість' не можуть бути порожніми.");
+                }
+                else if (String.IsNullOrEmpty(textBoxName.Text))
+                {
+                    MessageBox.Show("ERROR! Поле 'Назва товару' не може бути порожнім.");
+                }
+                else if (String.IsNullOrEmpty(textBoxProductPrice.Text))
+                {
+                    MessageBox.Show("ERROR! Поле 'Вартість' не може бути порожнім.");
+                }
+                else 
+                {
+                    MessageBox.Show($"ERROR! Неправильний тип даних. Зверніть увагу, що в полях {labelAddProductPrice.Text} та {labelAdd_Food_Page_Quantity.Text} " +
+                        $"має бути числове додатнє значення.") ;
+                }
                 succesfulAction = false;
-                MessageBox.Show("ERROR! Перевірте правильність введених даних.");
             }
+            
             if (succesfulAction == true) 
             { 
-                addProducts_ElementVisibilityOFF();
+                addProducts_AllElementVisibilityOFF();
                 ClearAddBoxes();
+                AddingElementToList(productList.Count-1);
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)     // Функція приховання боксів для введення інформації 
         {
-            addProducts_ElementVisibilityOFF();
+            addProducts_AllElementVisibilityOFF();
             ClearAddBoxes();
         }
+
     }
 
         

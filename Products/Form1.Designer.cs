@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonAddFood = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAddAnotherProduct = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparatorRight1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonAddBook = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparatorRight1_2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonAddFood = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparatorRight2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonAddBook = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparatorRight3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparatorLeft = new System.Windows.Forms.ToolStripSeparator();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -72,15 +76,24 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(40, 80);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1207, 292);
+            this.dataGridView1.Size = new System.Drawing.Size(1207, 338);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -90,10 +103,13 @@
             this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonAddFood,
+            this.toolStripButtonAddAnotherProduct,
             this.toolStripSeparatorRight1,
-            this.toolStripButtonAddBook,
+            this.toolStripSeparatorRight1_2,
+            this.toolStripButtonAddFood,
             this.toolStripSeparatorRight2,
+            this.toolStripButtonAddBook,
+            this.toolStripSeparatorRight3,
             this.toolStripButtonDelete,
             this.toolStripSeparatorLeft});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
@@ -103,6 +119,31 @@
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked_1);
+            // 
+            // toolStripButtonAddAnotherProduct
+            // 
+            this.toolStripButtonAddAnotherProduct.BackColor = System.Drawing.SystemColors.Info;
+            this.toolStripButtonAddAnotherProduct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonAddAnotherProduct.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripButtonAddAnotherProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButtonAddAnotherProduct.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddAnotherProduct.Image")));
+            this.toolStripButtonAddAnotherProduct.ImageTransparentColor = System.Drawing.Color.PeachPuff;
+            this.toolStripButtonAddAnotherProduct.Margin = new System.Windows.Forms.Padding(10, 2, 10, 3);
+            this.toolStripButtonAddAnotherProduct.Name = "toolStripButtonAddAnotherProduct";
+            this.toolStripButtonAddAnotherProduct.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.toolStripButtonAddAnotherProduct.Size = new System.Drawing.Size(141, 38);
+            this.toolStripButtonAddAnotherProduct.Text = "Додати товар";
+            this.toolStripButtonAddAnotherProduct.Click += new System.EventHandler(this.toolStripButtonAddAnotherProduct_Click);
+            // 
+            // toolStripSeparatorRight1
+            // 
+            this.toolStripSeparatorRight1.Name = "toolStripSeparatorRight1";
+            this.toolStripSeparatorRight1.Size = new System.Drawing.Size(6, 43);
+            // 
+            // toolStripSeparatorRight1_2
+            // 
+            this.toolStripSeparatorRight1_2.Name = "toolStripSeparatorRight1_2";
+            this.toolStripSeparatorRight1_2.Size = new System.Drawing.Size(6, 43);
             // 
             // toolStripButtonAddFood
             // 
@@ -119,10 +160,10 @@
             this.toolStripButtonAddFood.Text = "Додати продукт";
             this.toolStripButtonAddFood.Click += new System.EventHandler(this.toolStripButtonAddFood_Click);
             // 
-            // toolStripSeparatorRight1
+            // toolStripSeparatorRight2
             // 
-            this.toolStripSeparatorRight1.Name = "toolStripSeparatorRight1";
-            this.toolStripSeparatorRight1.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparatorRight2.Name = "toolStripSeparatorRight2";
+            this.toolStripSeparatorRight2.Size = new System.Drawing.Size(6, 43);
             // 
             // toolStripButtonAddBook
             // 
@@ -139,10 +180,10 @@
             this.toolStripButtonAddBook.Text = "Додати книгу";
             this.toolStripButtonAddBook.Click += new System.EventHandler(this.toolStripButtonAddBook_Click);
             // 
-            // toolStripSeparatorRight2
+            // toolStripSeparatorRight3
             // 
-            this.toolStripSeparatorRight2.Name = "toolStripSeparatorRight2";
-            this.toolStripSeparatorRight2.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparatorRight3.Name = "toolStripSeparatorRight3";
+            this.toolStripSeparatorRight3.Size = new System.Drawing.Size(6, 43);
             // 
             // toolStripButtonDelete
             // 
@@ -172,7 +213,7 @@
             // textBoxName
             // 
             this.textBoxName.AccessibleDescription = "";
-            this.textBoxName.Location = new System.Drawing.Point(54, 459);
+            this.textBoxName.Location = new System.Drawing.Point(46, 524);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(211, 31);
             this.textBoxName.TabIndex = 3;
@@ -180,7 +221,7 @@
             // 
             // textBoxPackingDate
             // 
-            this.textBoxPackingDate.Location = new System.Drawing.Point(810, 459);
+            this.textBoxPackingDate.Location = new System.Drawing.Point(802, 524);
             this.textBoxPackingDate.Name = "textBoxPackingDate";
             this.textBoxPackingDate.Size = new System.Drawing.Size(223, 31);
             this.textBoxPackingDate.TabIndex = 4;
@@ -189,7 +230,7 @@
             // 
             // textBoxСountryOfOrigin
             // 
-            this.textBoxСountryOfOrigin.Location = new System.Drawing.Point(54, 533);
+            this.textBoxСountryOfOrigin.Location = new System.Drawing.Point(46, 598);
             this.textBoxСountryOfOrigin.Name = "textBoxСountryOfOrigin";
             this.textBoxСountryOfOrigin.Size = new System.Drawing.Size(156, 31);
             this.textBoxСountryOfOrigin.TabIndex = 5;
@@ -197,7 +238,7 @@
             // 
             // textBox_Food_Page_Quantity
             // 
-            this.textBox_Food_Page_Quantity.Location = new System.Drawing.Point(425, 533);
+            this.textBox_Food_Page_Quantity.Location = new System.Drawing.Point(417, 598);
             this.textBox_Food_Page_Quantity.Name = "textBox_Food_Page_Quantity";
             this.textBox_Food_Page_Quantity.Size = new System.Drawing.Size(106, 31);
             this.textBox_Food_Page_Quantity.TabIndex = 6;
@@ -206,7 +247,7 @@
             // buttonFinishAdding
             // 
             this.buttonFinishAdding.BackColor = System.Drawing.SystemColors.Info;
-            this.buttonFinishAdding.Location = new System.Drawing.Point(1112, 470);
+            this.buttonFinishAdding.Location = new System.Drawing.Point(1104, 535);
             this.buttonFinishAdding.Name = "buttonFinishAdding";
             this.buttonFinishAdding.Size = new System.Drawing.Size(112, 73);
             this.buttonFinishAdding.TabIndex = 7;
@@ -217,7 +258,7 @@
             // 
             // textBoxProductPrice
             // 
-            this.textBoxProductPrice.Location = new System.Drawing.Point(264, 533);
+            this.textBoxProductPrice.Location = new System.Drawing.Point(256, 598);
             this.textBoxProductPrice.Name = "textBoxProductPrice";
             this.textBoxProductPrice.Size = new System.Drawing.Size(111, 31);
             this.textBoxProductPrice.TabIndex = 8;
@@ -225,7 +266,7 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(317, 459);
+            this.textBoxDescription.Location = new System.Drawing.Point(309, 524);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(442, 31);
             this.textBoxDescription.TabIndex = 10;
@@ -234,7 +275,7 @@
             // labelAddName
             // 
             this.labelAddName.AutoSize = true;
-            this.labelAddName.Location = new System.Drawing.Point(54, 431);
+            this.labelAddName.Location = new System.Drawing.Point(46, 496);
             this.labelAddName.Name = "labelAddName";
             this.labelAddName.Size = new System.Drawing.Size(127, 25);
             this.labelAddName.TabIndex = 11;
@@ -244,7 +285,7 @@
             // 
             // textBox_ExpDate_PublishingHouse
             // 
-            this.textBox_ExpDate_PublishingHouse.Location = new System.Drawing.Point(571, 533);
+            this.textBox_ExpDate_PublishingHouse.Location = new System.Drawing.Point(563, 598);
             this.textBox_ExpDate_PublishingHouse.Name = "textBox_ExpDate_PublishingHouse";
             this.textBox_ExpDate_PublishingHouse.Size = new System.Drawing.Size(188, 31);
             this.textBox_ExpDate_PublishingHouse.TabIndex = 12;
@@ -252,7 +293,7 @@
             // 
             // textBox_Measure_Authors
             // 
-            this.textBox_Measure_Authors.Location = new System.Drawing.Point(810, 533);
+            this.textBox_Measure_Authors.Location = new System.Drawing.Point(802, 598);
             this.textBox_Measure_Authors.Name = "textBox_Measure_Authors";
             this.textBox_Measure_Authors.Size = new System.Drawing.Size(223, 31);
             this.textBox_Measure_Authors.TabIndex = 13;
@@ -261,7 +302,7 @@
             // labelAddDescription
             // 
             this.labelAddDescription.AutoSize = true;
-            this.labelAddDescription.Location = new System.Drawing.Point(317, 431);
+            this.labelAddDescription.Location = new System.Drawing.Point(309, 496);
             this.labelAddDescription.Name = "labelAddDescription";
             this.labelAddDescription.Size = new System.Drawing.Size(58, 25);
             this.labelAddDescription.TabIndex = 14;
@@ -271,7 +312,7 @@
             // labelAddPackingDate
             // 
             this.labelAddPackingDate.AutoSize = true;
-            this.labelAddPackingDate.Location = new System.Drawing.Point(810, 431);
+            this.labelAddPackingDate.Location = new System.Drawing.Point(802, 496);
             this.labelAddPackingDate.Name = "labelAddPackingDate";
             this.labelAddPackingDate.Size = new System.Drawing.Size(167, 25);
             this.labelAddPackingDate.TabIndex = 15;
@@ -281,7 +322,7 @@
             // labelAddCountryOfOrigin
             // 
             this.labelAddCountryOfOrigin.AutoSize = true;
-            this.labelAddCountryOfOrigin.Location = new System.Drawing.Point(54, 505);
+            this.labelAddCountryOfOrigin.Location = new System.Drawing.Point(46, 570);
             this.labelAddCountryOfOrigin.Name = "labelAddCountryOfOrigin";
             this.labelAddCountryOfOrigin.Size = new System.Drawing.Size(175, 25);
             this.labelAddCountryOfOrigin.TabIndex = 16;
@@ -291,7 +332,7 @@
             // labelAddProductPrice
             // 
             this.labelAddProductPrice.AutoSize = true;
-            this.labelAddProductPrice.Location = new System.Drawing.Point(264, 505);
+            this.labelAddProductPrice.Location = new System.Drawing.Point(256, 570);
             this.labelAddProductPrice.Name = "labelAddProductPrice";
             this.labelAddProductPrice.Size = new System.Drawing.Size(81, 25);
             this.labelAddProductPrice.TabIndex = 17;
@@ -301,7 +342,7 @@
             // labelAdd_Food_Page_Quantity
             // 
             this.labelAdd_Food_Page_Quantity.AutoSize = true;
-            this.labelAdd_Food_Page_Quantity.Location = new System.Drawing.Point(416, 505);
+            this.labelAdd_Food_Page_Quantity.Location = new System.Drawing.Point(408, 570);
             this.labelAdd_Food_Page_Quantity.Name = "labelAdd_Food_Page_Quantity";
             this.labelAdd_Food_Page_Quantity.Size = new System.Drawing.Size(133, 25);
             this.labelAdd_Food_Page_Quantity.TabIndex = 18;
@@ -312,7 +353,7 @@
             // labelAdd_ExpDate_PublishingHouse
             // 
             this.labelAdd_ExpDate_PublishingHouse.AutoSize = true;
-            this.labelAdd_ExpDate_PublishingHouse.Location = new System.Drawing.Point(571, 505);
+            this.labelAdd_ExpDate_PublishingHouse.Location = new System.Drawing.Point(563, 570);
             this.labelAdd_ExpDate_PublishingHouse.Name = "labelAdd_ExpDate_PublishingHouse";
             this.labelAdd_ExpDate_PublishingHouse.Size = new System.Drawing.Size(174, 25);
             this.labelAdd_ExpDate_PublishingHouse.TabIndex = 19;
@@ -324,7 +365,7 @@
             // 
             this.labelAdd_Measure_Authors.AutoSize = true;
             this.labelAdd_Measure_Authors.BackColor = System.Drawing.SystemColors.Control;
-            this.labelAdd_Measure_Authors.Location = new System.Drawing.Point(810, 505);
+            this.labelAdd_Measure_Authors.Location = new System.Drawing.Point(802, 570);
             this.labelAdd_Measure_Authors.Name = "labelAdd_Measure_Authors";
             this.labelAdd_Measure_Authors.Size = new System.Drawing.Size(51, 25);
             this.labelAdd_Measure_Authors.TabIndex = 20;
@@ -335,7 +376,7 @@
             // 
             this.labelAddMain.AutoSize = true;
             this.labelAddMain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAddMain.Location = new System.Drawing.Point(85, 387);
+            this.labelAddMain.Location = new System.Drawing.Point(77, 452);
             this.labelAddMain.Name = "labelAddMain";
             this.labelAddMain.Size = new System.Drawing.Size(290, 25);
             this.labelAddMain.TabIndex = 21;
@@ -349,7 +390,7 @@
             this.LabelOfAddHiding.AutoSize = true;
             this.LabelOfAddHiding.DisabledLinkColor = System.Drawing.Color.DarkGray;
             this.LabelOfAddHiding.LinkColor = System.Drawing.Color.DarkGray;
-            this.LabelOfAddHiding.Location = new System.Drawing.Point(1033, 387);
+            this.LabelOfAddHiding.Location = new System.Drawing.Point(1025, 452);
             this.LabelOfAddHiding.Name = "LabelOfAddHiding";
             this.LabelOfAddHiding.Size = new System.Drawing.Size(236, 25);
             this.LabelOfAddHiding.TabIndex = 22;
@@ -362,7 +403,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1314, 604);
+            this.ClientSize = new System.Drawing.Size(1314, 676);
             this.Controls.Add(this.LabelOfAddHiding);
             this.Controls.Add(this.labelAddMain);
             this.Controls.Add(this.labelAdd_Measure_Authors);
@@ -424,5 +465,8 @@
         private Label labelAdd_Measure_Authors;
         private Label labelAddMain;
         private LinkLabel LabelOfAddHiding;
+        private ToolStripButton toolStripButtonAddAnotherProduct;
+        private ToolStripSeparator toolStripSeparatorRight3;
+        private ToolStripSeparator toolStripSeparatorRight1_2;
     }
 }

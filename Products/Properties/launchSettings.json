@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Products": {
+      "commandName": "Project"
+    },
+    "Профиль 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Olga.ZEN-4QTIB9V\\source\\repos\\Silence-o0\\Products-WinForms-\\Products.sln"
+    }
+  }
+}

@@ -27,9 +27,9 @@ namespace Products
 
         class Food : Product
         {
-            int foodQuantity;
-            string expirationDate;
-            string unitOfMeasure;
+            internal int foodQuantity;
+            internal string expirationDate;
+            internal string unitOfMeasure;
             public Food (int quantity, string expirationDate, string unitOfMeasure, 
                 string name, string country, double price, string description, string packingDate) : 
                 base(name, country, price, description, packingDate)
@@ -42,9 +42,9 @@ namespace Products
 
         class Book : Product
         {
-            int pageQuantity;
-            string publishingHouse;
-            string authors;
+            internal int pageQuantity;
+            internal string publishingHouse;
+            internal string authors;
             public Book(int pageQuantity, string publishingHouse, string authors,
             string name, string country, double price, string description, string packingDate) :
                 base(name, country, price, description, packingDate)
@@ -309,9 +309,8 @@ namespace Products
                 column11 = null;
             }
 
-            table.Rows.Add(productList[i].name, productList[i].countryOfOrigin, productList[i].productPrice, 
-                productList[i].description, productList[i].packingDate,
-        column6, column7, column8, column9, column10, column11);
+            table.Rows.Add(productList[i].name, productList[i].countryOfOrigin, productList[i].productPrice, productList[i].description, 
+                productList[i].packingDate, column6, column7, column8, column9, column10, column11);
         }
         private void displayListAtDataGrid()
         {
